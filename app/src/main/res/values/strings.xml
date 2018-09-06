@@ -1,0 +1,8 @@
+<resources>
+    <string name="movies">Movies App</string>
+    <string name="famous">Famous App</string>
+    <string name="popular">Popular</string>
+    <string name="top_rate">Top Rate</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="sort_menu">Sort</string>
+</resources>
