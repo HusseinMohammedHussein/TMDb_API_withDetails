@@ -53,8 +53,6 @@ public class MoviesRepository {
         return repository;
     }
 
-//    getMovies => OnGetMoviesCallback
-
     public void getMovies(int page, String sortBy, final OnGetMoviesCallback callback) {
         Callback<MoviesResponse> call = new Callback<MoviesResponse>() {
             @Override
@@ -91,31 +89,7 @@ public class MoviesRepository {
                 break;
         }
     }
-//        Log.d("MoviesRepository", "Next Page = " + page);
-//        api.getPopularMovies("112d2d99cb1a29bdafde742aeb373107", LANGUAGE, page)
-//                .enqueue(new Callback<MoviesResponse>() {
-//                    @Override
-//                    public void onResponse(Call<MoviesResponse> call, Response<MoviesResponse> response) {
-//                        if (response.isSuccessful()) {
-//                            MoviesResponse moviesResponse = response.body();
-//                            if (moviesResponse != null && moviesResponse.getMovies() != null) {
-//                                callback.onSuccess(moviesResponse.getPage(), moviesResponse.getMovies());
-//                            } else {
-//                                callback.onError();
-//                            }
-//                        } else {
-//                            callback.onError();
-//                        }
-//                    }
-//
-//                    @Override
-//                    public void onFailure(Call<MoviesResponse> call, Throwable t) {
-//                        callback.onError();
-//                    }
-//                });
 
-
-//      getMovie => OnGetMovieCallback
 
     public void getMovie(int movieId, final OnGetMovieCallback callback) {
         api.getMovie(movieId, TMDB_API_KEY, LANGUAGE).enqueue(new Callback<Movie>() {

@@ -3,12 +3,10 @@ package com.moviesapptmdbapi.Reset;
 import com.moviesapptmdbapi.Model.GenresResponse;
 import com.moviesapptmdbapi.Model.Movie;
 import com.moviesapptmdbapi.Model.MoviesResponse;
-import com.moviesapptmdbapi.Model.Review;
 import com.moviesapptmdbapi.Model.ReviewResponse;
 import com.moviesapptmdbapi.Model.TrailerResponse;
 
 import retrofit2.Call;
-import retrofit2.Callback;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
 import retrofit2.http.Query;
@@ -61,7 +59,7 @@ public interface TMDbApi {
     @GET("movie/{movie_id}/reviews")
     Call<ReviewResponse> getReviews(
             @Path("movie_id") int id,
-            @Query("api_key") String  apiKey,
+            @Query("api_key") String apiKey,
             @Query("language") String language
     );
 }

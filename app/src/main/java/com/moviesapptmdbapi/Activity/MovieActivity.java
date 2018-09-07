@@ -23,7 +23,6 @@ import com.moviesapptmdbapi.R;
 import com.moviesapptmdbapi.Repository.MoviesRepository;
 import com.moviesapptmdbapi.Reset.OnGetGenresCallback;
 import com.moviesapptmdbapi.Reset.OnGetMovieCallback;
-import com.moviesapptmdbapi.Reset.OnGetMoviesCallback;
 import com.moviesapptmdbapi.Reset.OnGetReviewsCallback;
 import com.moviesapptmdbapi.Reset.OnGetTrailersCallback;
 
@@ -198,9 +197,12 @@ public class MovieActivity extends AppCompatActivity {
     }
 
     private void showTrailers(String url) {
+        /*** This Way ***/
+
 //        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
 //        startActivity(intent);
 
+        /*** Other Way ***/
         startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
     }
 

@@ -1,4 +1,5 @@
 <resources>
+    <!-- MAin Activity -->
     <string name="movies">Movies App</string>
     <string name="famous">Famous App</string>
     <string name="popular">Popular</string>
@@ -6,10 +7,11 @@
     <string name="upcoming">Upcoming</string>
     <string name="sort_menu">Sort</string>
 
-    <!--Movie Activity-->
+    <!-- Movie Activity -->
     <string name="trailersLabel">Trailers</string>
     <string name="reviewsLabel">Reviews</string>
-    <!--Item Movie Activity-->
+
+    <!-- Item Movie Activity -->
     <string name="item_movie_title">Movie Title</string>
     <string name="item_movie_genre">Comdy, Acion</string>
     <string name="item_movie_rating">8.7</string>
