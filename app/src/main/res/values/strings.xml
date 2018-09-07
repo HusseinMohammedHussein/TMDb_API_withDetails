@@ -5,4 +5,13 @@
     <string name="top_rate">Top Rate</string>
     <string name="upcoming">Upcoming</string>
     <string name="sort_menu">Sort</string>
+
+    <!--Movie Activity-->
+    <string name="trailersLabel">Trailers</string>
+    <string name="reviewsLabel">Reviews</string>
+    <!--Item Movie Activity-->
+    <string name="item_movie_title">Movie Title</string>
+    <string name="item_movie_genre">Comdy, Acion</string>
+    <string name="item_movie_rating">8.7</string>
+    <string name="item_movie_release_date">2018</string>
 </resources>

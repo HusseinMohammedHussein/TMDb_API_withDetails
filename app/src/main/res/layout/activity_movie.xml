@@ -168,7 +168,7 @@
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
                 android:layout_marginTop="32dp"
-                android:text="Trailers"
+                android:text="@string/trailersLabel"
                 android:textSize="24sp"
                 android:visibility="gone"
                 app:layout_constraintLeft_toLeftOf="parent"
