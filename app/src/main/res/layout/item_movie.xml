@@ -10,6 +10,7 @@
         android:layout_height="match_parent"
         android:padding="10dp">
 
+        <!-- Movie Photo -->
         <ImageView
             android:id="@+id/item_movie_poster"
             android:layout_width="96dp"
@@ -30,20 +31,21 @@
             android:orientation="vertical"
             app:layout_constraintStart_toEndOf="@id/item_movie_poster">
 
+            <!-- Movie Release Date -->
             <TextView
                 android:id="@+id/item_movie_release_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:alpha="0.7"
                 android:text="@string/item_movie_release_date" />
-
+            <!-- Movie Title -->
             <TextView
                 android:id="@+id/item_movie_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/item_movie_title"
                 android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
-
+            <!-- Movie Genre -->
             <TextView
                 android:id="@+id/item_movie_genre"
                 android:layout_width="wrap_content"
@@ -51,7 +53,7 @@
                 android:alpha="0.7"
                 android:text="@string/item_movie_genre" />
         </LinearLayout>
-
+        <!-- Movie Rating -->
         <TextView
             android:id="@+id/item_movie_rating"
             android:layout_width="wrap_content"

@@ -29,13 +29,12 @@ public class MainActivity extends AppCompatActivity {
     OnMoviesClickCallback clickCallback = new OnMoviesClickCallback() {
         @Override
         public void onClick(Movie movie) {
-
             Intent intent = new Intent(MainActivity.this, MovieActivity.class);
             intent.putExtra(MovieActivity.MOVIE_ID, movie.getId());
             startActivity(intent);
         }
     };
-    //    Sort BY
+    //Sort BY
     private String sortBY = MoviesRepository.POPULAR;
     //TODO: Elements Main Activity
     private RecyclerView rcView;
@@ -57,22 +56,20 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-
         mRepository = MoviesRepository.getInstance();
         rcView = (RecyclerView) findViewById(R.id.movies_list);
         rcView.setLayoutManager(new LinearLayoutManager(this));
-
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-//        setupOneScrollListener() is make RecyclerView show Data by sort
+        //setupOneScrollListener() is make RecyclerView show Data by sort
         setupOneScrollListener();
-//        getGenres() METHOD is for show Genres of Movies
+        //getGenres() METHOD is for show Genres of Movies
         getGenres();
     }
 
-    //      TODO: Sort Menu (Popular, Top Rate, Upcoming) /
-    //    TODO: When select Sort Icon will show my menu of "res/menu/menu_movies_sort"
+    //Sort Menu (Popular, Top Rate, Upcoming)
+    //When select Sort Icon will show MENU from "res/menu/menu_movies_sort"
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -84,11 +81,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-//    END
-
-//    TODO: Manage display RecyclerView for show Movies
-
-    //    TODO: add menu_movies_sort in Sort
+    //add menu_movies_sort in Sort
     private void showSortMenu() {
         PopupMenu sortMenu = new PopupMenu(this, findViewById(R.id.sort));
         sortMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
@@ -117,25 +110,12 @@ public class MainActivity extends AppCompatActivity {
         sortMenu.show();
     }
 
-    // TODO: Make SORT menu show in MainActivity
+    //Make SORT menu show in MainActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_movies, menu);
         return super.onCreateOptionsMenu(menu);
     }
-
-    /*
-     * TODO: MainActivity.getMovies Method Role:
-     * this method tack parameter of INT type;
-     * make isFetchingMovies var equal TRUE, mean of that FetchingMovies from site;
-     * use MoviesRepository object to getMovies  and Pass "page" parameter, OnGetMoviesCallback is parameter of MoviesRepository class;
-     * IF condition (Adapter object equal NULL) { pass to Adapter two parameter first MOVIES of List type & MovieGenres it's object of List type fetch Genres of Movies;
-     * then set Adapter into RecyclerView} ELSE { return Adapter -> appendMovies method and pass movies parameter of List type-List of Movie Model}
-     * then set page parameter of INT type into currentPage;
-     * make isFetchingMovies equal false;
-     * IF all this not Work show me onError method it's return showError() method,
-     * showError is method to show TOAST display message"check the internet connection" in case mobile no connection with internet
-     * */
 
     private void setupOneScrollListener() {
         final LinearLayoutManager manager = new LinearLayoutManager(this);
@@ -146,7 +126,6 @@ public class MainActivity extends AppCompatActivity {
                 int totalItemCount = manager.getItemCount();
                 int visibleItemCount = manager.getChildCount();
                 int firstVisibleItem = manager.findFirstVisibleItemPosition();
-
                 if (firstVisibleItem + visibleItemCount >= totalItemCount / 2) {
                     if (!isFetchingMovies) {
                         getMovies(currentPage + 1);
@@ -154,10 +133,9 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
-
     }
 
-    //    TODO: MainActivity.getGenres of Movies
+    //MainActivity.getGenres of Movies
     private void getGenres() {
         mRepository.getGenres(new OnGetGenresCallback() {
             @Override
@@ -165,10 +143,8 @@ public class MainActivity extends AppCompatActivity {
                 movieGenres = genres;
                 getMovies(currentPage);
             }
-
             @Override
             public void onError() {
-
                 showError();
             }
         });
@@ -180,9 +156,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onSuccess(int page, List<Movie> movies) {
                 Log.d("MoviesRepository", "Current Page = " + page);
-
                 if (mAdapter == null) {
-
                     mAdapter = new MoviesAdapter(movies, movieGenres, clickCallback);
                     rcView.setAdapter(mAdapter);
                 } else {
@@ -195,10 +169,8 @@ public class MainActivity extends AppCompatActivity {
                 isFetchingMovies = false;
                 setTitle();
             }
-
             @Override
             public void onError() {
-
                 showError();
             }
         });
@@ -219,7 +191,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void showError() {
-
         Toast.makeText(MainActivity.this, "Please check your internet connection.", Toast.LENGTH_LONG).show();
     }
 }

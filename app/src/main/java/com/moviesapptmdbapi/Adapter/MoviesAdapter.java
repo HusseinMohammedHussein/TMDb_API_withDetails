@@ -24,9 +24,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
     private List<Movie> mMovies;
     private List<Genre> allGenres;
     private String IMAGE_BASE_URL = "http://image.tmdb.org/t/p/w500";
-
     private OnMoviesClickCallback callback;
-
     public MoviesAdapter(List<Movie> mvis, List<Genre> allGenres, OnMoviesClickCallback callback) {
         this.mMovies = mvis;
         this.allGenres = allGenres;
@@ -42,7 +40,6 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
 
     @Override
     public void onBindViewHolder(@NonNull MovieViewHolder holder, int position) {
-
         holder.bind(mMovies.get(position));
     }
 
@@ -53,31 +50,26 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
 
 
     class MovieViewHolder extends RecyclerView.ViewHolder {
-
         TextView releaseDate, title, rating, genres;
         ImageView poster;
         Movie movie;
 
         public MovieViewHolder(View itemView) {
             super(itemView);
-
             releaseDate = itemView.findViewById(R.id.item_movie_release_date);
             title = itemView.findViewById(R.id.item_movie_title);
             rating = itemView.findViewById(R.id.item_movie_rating);
             genres = itemView.findViewById(R.id.item_movie_genre);
             poster = itemView.findViewById(R.id.item_movie_poster);
-
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     callback.onClick(movie);
                 }
             });
-
         }
 
         public void bind(Movie movie) {
-
             releaseDate.setText(movie.getReleaseDate().split("-")[0]);
             title.setText(movie.getTitle());
             rating.setText(String.valueOf(movie.getRating()));
@@ -101,7 +93,6 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
             }
             return TextUtils.join(",  ", movieGenres);
         }
-
     }
 
     public void appendMovies(List<Movie> moviesToAppend) {
@@ -113,6 +104,4 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MovieViewH
         mMovies.clear();
         notifyDataSetChanged();
     }
-
-
 }

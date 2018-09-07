@@ -33,20 +33,16 @@ public class MovieActivity extends AppCompatActivity {
 
 
     public static String MOVIE_ID = "movie_id";
-
     private static String IMAGE_BASE_URL = "http://image.tmdb.org/t/p/w780";
     private static String YOUTUBE_VIDEO_URL = "http://www.youtube.com/watch?v=%s";
     private static String YOUTUBE_THUMBNAIL_URL = "http://img.youtube.com/vi/%s/0.jpg";
-
     private ImageView movieBackdrop;
     private TextView movieTitle, movieGenres, movieOverview, movieOverviewLabel, movieReleaseDate, trailersLabel, reviewLabel;
     private RatingBar movieRating;
     private LinearLayout movieTrailers;
     private LinearLayout movieReviews;
-
     private MoviesRepository moviesRepository;
     private int movieId;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +52,6 @@ public class MovieActivity extends AppCompatActivity {
         movieId = getIntent().getIntExtra(MOVIE_ID, movieId);
         moviesRepository = MoviesRepository.getInstance();
 
-
 //        setupToolbar Method
         setupToolbar();
 //        Initialization UI
@@ -65,11 +60,9 @@ public class MovieActivity extends AppCompatActivity {
         getMovie();
     }
 
-
     private void setupToolbar() {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         if (getSupportActionBar() != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
             getSupportActionBar().setDisplayShowTitleEnabled(false);
@@ -110,13 +103,11 @@ public class MovieActivity extends AppCompatActivity {
                             .into(movieBackdrop);
                 }
             }
-
             @Override
             public void onError() {
                 finish();
             }
         });
-
     }
 
     private void getGenres(final Movie movie) {
@@ -188,7 +179,6 @@ public class MovieActivity extends AppCompatActivity {
                     movieReviews.addView(parent);
                 }
             }
-
             @Override
             public void onError() {
 

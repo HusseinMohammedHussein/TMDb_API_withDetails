@@ -24,19 +24,17 @@ public class MoviesRepository {
     public static final String POPULAR = "popular";
     public static final String TOP_RATE = "top_rate";
     public static final String UPCOMING = "upcoming";
-
     public static final String TMDB_API_KEY = "112d2d99cb1a29bdafde742aeb373107";
-    //    URL for fetch Movies
+
+    //URL for fetch Movies
     private static final String BASE_URL = "https://api.themoviedb.org/3/";
-    //    Display Language
+    //Display Language
     private static final String LANGUAGE = "en-US";
-    //    Rest/MoviesRepository
+    //Rest/MoviesRepository
     private static MoviesRepository repository;
-    //    Rest/TmdbApi
+    //Rest/TmdbApi
     private TMDbApi api;
-
     private MoviesRepository(TMDbApi api) {
-
         this.api = api;
     }
 
@@ -46,10 +44,8 @@ public class MoviesRepository {
                     .baseUrl(BASE_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .build();
-
             repository = new MoviesRepository(retrofit.create(TMDbApi.class));
         }
-
         return repository;
     }
 
@@ -57,7 +53,6 @@ public class MoviesRepository {
         Callback<MoviesResponse> call = new Callback<MoviesResponse>() {
             @Override
             public void onResponse(Call<MoviesResponse> call, Response<MoviesResponse> response) {
-
                 if (response.isSuccessful()) {
                     MoviesResponse moviesResponse = response.body();
                     if (moviesResponse != null && moviesResponse.getMovies() != null) {
@@ -69,10 +64,8 @@ public class MoviesRepository {
                     callback.onError();
                 }
             }
-
             @Override
             public void onFailure(Call<MoviesResponse> call, Throwable t) {
-
                 callback.onError();
             }
         };
@@ -188,7 +181,6 @@ public class MoviesRepository {
                     }
                 });
     }
-
 }
 
 
